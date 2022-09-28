@@ -9,5 +9,11 @@ module.exports = {
     content: [
       './src/**/*.{html, ts}',
     ],
+  },
+  variants: {
+    extend: {
+      opacity: ['disabled'],
+      backgorundColor: ['disabled']
+    },
   }
 }

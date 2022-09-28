@@ -1,11 +1,18 @@
-<input type="text" class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400" placeholder="Enter Name"
-    [formControl]="control" />
+<input [type]="type" class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
+duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400" [placeholder]="placeholder"
+    [formControl]="control" [mask]="format" [dropSpecialCharacters]="false" />
 <ng-container *ngIf="control.touched && control.dirty" class="text-red-400">
+    <p *ngIf="control.errors?.['pattern']" class="text-red-400">
+        Passwords must be at least 8 characters long.
+    </p>
     <p *ngIf="control.errors?.['required']" class="text-red-400">
         Field is required
     </p>
-    <div *ngIf="control.errors && control.errors['minlength']" class="text-red-400">Minimum
+    <div *ngIf="control.errors && control.errors?.['minlength']" class="text-red-400">Minimum
         {{control.errors['minlength'].requiredLength}}
         characters.</div>
+    <div *ngIf="control.errors && control.errors['min']">You should be at least 18.</div>
+    <div *ngIf="control.errors && control.errors['max']">You should be max 120.</div>
+    <div *ngIf="control.errors && control.errors['pattern']">Password must have 8 chars, 1 uppercase,
+        1 lower case and 1 number</div>
 </ng-container>
