@@ -5,6 +5,10 @@ import { NavComponent } from './nav/nav.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthModalComponent } from './user/auth-modal/auth-modal.component';
 import { UserModule } from './user/user.module';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { environment } from 'src/environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,7 +17,11 @@ import { UserModule } from './user/user.module';
   imports: [
     BrowserModule,
     SharedModule,
-    UserModule
+    UserModule,
+    //inicializando o firebase com o angular
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
