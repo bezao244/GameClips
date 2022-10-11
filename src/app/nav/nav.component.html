@@ -9,13 +9,14 @@
             <ul class="flex flex-row mt-1">
                 <!-- Navigation Links -->
                 <li>
-                    <a class="px-2" href="#" (click)="openModal($event)">Login / Register</a>
+                    <a class="px-2" href="#" (click)="openModal($event)" *ngIf="!(auth.isAuthenticated$ | async)">Login
+                        / Register</a>
                 </li>
                 <li>
-                    <a class="px-2" href="#">Manage</a>
+                    <a class="px-2" href="#" *ngIf="auth.isAuthenticated$ | async">Manage</a>
                 </li>
                 <li>
-                    <a class="px-2" href="#">Upload</a>
+                    <a class="px-2" href="#" *ngIf="auth.isAuthenticated$ | async">Upload</a>
                 </li>
                 <li>
                     <a class="px-2" href="about.html">About</a>
