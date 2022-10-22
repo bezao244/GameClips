@@ -19,6 +19,9 @@
                     <a class="px-2" href="#" *ngIf="auth.isAuthenticated$ | async">Upload</a>
                 </li>
                 <li>
+                    <a class="px-2" href="#" *ngIf="auth.isAuthenticated$ | async" (click)="logout($event)">Logout</a>
+                </li>
+                <li>
                     <a class="px-2" href="about.html">About</a>
                 </li>
             </ul>
