@@ -8,9 +8,9 @@ duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400" 
     <div *ngIf="control.errors && control.errors['email']">Email is invalid.</div>
     <div *ngIf="control.errors && control.errors['min']">You should be at least 18.</div>
     <div *ngIf="control.errors && control.errors['max']">You should be max 120.</div>
-    <div *ngIf="control.errors && control.errors['pattern']">Password must have 8 chars, 1 uppercase, 1 lower case and 1
-        number</div>
-    <div *ngIf="control.errors && control.errors['noMatch']">Password do not match</div>
+    <div *ngIf="control.errors && control.errors['pattern']">Password must have 8 chars, 1 uppercase,
+        1 lower case and 1 number</div>
+    <div *ngIf="control.errors && control.errors['noMatch']">Passwords do not match</div>
     <div *ngIf="control.errors && control.errors['emailTaken']">Email already taken. Please try another Email.</div>
 
 </div>
