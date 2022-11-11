@@ -9,10 +9,18 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { VideoModule } from './video/video.module';
+import { ClipComponent } from './clip/clip.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    HomeComponent,
+    AboutComponent,
+    ClipComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +29,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     //inicializando o firebase com o angular
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AppRoutingModule,
+    VideoModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
