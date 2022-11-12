@@ -14,7 +14,8 @@
                 </li>
                 <li>
                     <a class="px-2" href="#" *ngIf="auth.isAuthenticated$ | async" routerLink="/manage"
-                        routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Manage</a>
+                        routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                        [queryParams]="{sort: '1'}">Manage</a>
                 </li>
                 <li>
                     <a class="px-2" href="#" *ngIf="auth.isAuthenticated$ | async" routerLink="/upload"
