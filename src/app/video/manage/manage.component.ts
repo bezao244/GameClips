@@ -16,6 +16,7 @@ export class ManageComponent implements OnInit {
   clips: IClip[] = [];
   activeClip: IClip | null = null;
   sort$: BehaviorSubject<string>;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -29,8 +30,9 @@ export class ManageComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((params: Params) => {
       this.videoOrder = params['sort'] ?? '1';
+      this.sort$.next(this.videoOrder);
     });
-    this.clipService.getUserClips().subscribe(clips => {
+    this.clipService.getUserClips(this.sort$).subscribe(clips => {
       this.clips = [];
       clips.forEach(clip => {
         this.clips.push({
